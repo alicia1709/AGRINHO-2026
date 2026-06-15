@@ -1,4 +1,4 @@
-/* Reset básico de página */
+/* Reset total para colar as imagens nas bordas da tela */
 * {
     margin: 0;
     padding: 0;
@@ -11,86 +11,111 @@ body {
     overflow-x: hidden;
 }
 
-/* Cabeçalho */
+/* Cabeçalho centralizado */
 .cabecalho {
-    background: linear-gradient(180deg, #bbf7d0 0%, #bae6fd 100%);
+    background: #bae6fd; 
     text-align: center;
-    padding: 40px 20px;
+    width: 100%;
 }
 
 .imagem-banner {
-    max-width: 100%;
+    display: block;
+    width: 100%;
+    max-width: 1200px; /* Evita que o título estique infinito em telas gigantes */
     height: auto;
-    filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.15));
+    margin: 0 auto;
 }
 
-/* Configuração Geral das Seções */
+/* Ajuste total das seções para os fundos aparecerem de verdade */
 .secao {
-    height: 100vh; /* Cada seção ocupa a tela cheia */
+    min-height: 100vh; /* Garante que ocupe a tela toda */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
+    
+    /* Configuração padrão para os fundos não quebrarem */
+    background-size: 100% 100%; /* Força a imagem a esticar e cobrir o bloco exato */
+    background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax na rolagem */
-    position: relative;
+    padding: 40px 20px;
 }
 
-/* Mapeamento das suas imagens de fundo */
+/* Link direto com os seus arquivos */
 .globo { background-image: url('2.png'); }
 .bolhas { background-image: url('3.png'); }
 .grama { background-image: url('4.png'); }
 
-/* Caixa de Texto Estilo Glassmorphism (Frutiger Aero) */
+/* Caixa de texto flutuante com efeito de vidro realista */
 .caixa-texto {
-    background: rgba(255, 255, 255, 0.4);
-    padding: 40px;
-    border-radius: 24px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.65); /* Mais opaco para garantir a leitura */
+    padding: 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     text-align: center;
-    color: #115e59;
-    max-width: 600px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 1s ease-out; /* Transição suave para o efeito do JS */
+    color: #042f2e; /* Verde bem escuro */
+    max-width: 550px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.8s ease;
 }
 
 .caixa-texto h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    font-size: 2.2rem;
+    margin-bottom: 12px;
 }
 
-/* Rodapé */
+.caixa-texto p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Rodapé arrumado */
 .rodape {
     background-image: url('5.png');
-    background-size: cover;
-    background-position: center;
-    padding: 80px 20px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.conteudo-rodape {
     text-align: center;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 45px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    color: #042f2e;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.8s ease;
 }
 
 .imagem-contato {
-    max-width: 100%;
-    width: 380px;
-    margin-top: 30px;
-    filter: drop-shadow(0px 12px 20px rgba(0,0,0,0.25));
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin-top: 25px;
 }
 
-/* Classes para o efeito de surgimento com JavaScript */
+/* Classes de animação do JS */
 .esconder {
     opacity: 0;
-    transform: translateY(40px);
+    transform: scale(0.9); /* Efeito de crescer suavemente em vez de só subir */
 }
 
 .mostrar {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
 }
 
-/* Animação das Bolhas criadas por JS */
+/* Container de Bolhas do JS */
 #container-bolhas {
     position: fixed;
     top: 0;
@@ -98,27 +123,22 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 999; /* Garante que fiquem na frente de tudo */
 }
 
 .bolha-js {
     position: absolute;
-    bottom: -50px;
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.8), 0 2px 5px rgba(0,0,0,0.05);
+    bottom: -60px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 70%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset -2px -2px 8px rgba(0,0,0,0.05), 0 4px 10px rgba(255,255,255,0.3);
     border-radius: 50%;
-    animation: subir 8s linear infinite;
+    animation: subir 7s linear infinite;
 }
 
 @keyframes subir {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-    }
-    10% { opacity: 0.7; }
-    90% { opacity: 0.7; }
-    100% {
-        transform: translateY(-110vh) scale(1.2);
-        opacity: 0;
-    }
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
+    15% { opacity: 0.8; }
+    85% { opacity: 0.8; }
+    100% { transform: translateY(-115vh) scale(1.2); opacity: 0; }
 }
