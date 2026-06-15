@@ -1,1 +1,124 @@
+/* Reset básico de página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+body {
+    background-color: #e0f2fe;
+    overflow-x: hidden;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background: linear-gradient(180deg, #bbf7d0 0%, #bae6fd 100%);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.imagem-banner {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.15));
+}
+
+/* Configuração Geral das Seções */
+.secao {
+    height: 100vh; /* Cada seção ocupa a tela cheia */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax na rolagem */
+    position: relative;
+}
+
+/* Mapeamento das suas imagens de fundo */
+.globo { background-image: url('2.png'); }
+.bolhas { background-image: url('3.png'); }
+.grama { background-image: url('4.png'); }
+
+/* Caixa de Texto Estilo Glassmorphism (Frutiger Aero) */
+.caixa-texto {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    text-align: center;
+    color: #115e59;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 1s ease-out; /* Transição suave para o efeito do JS */
+}
+
+.caixa-texto h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Rodapé */
+.rodape {
+    background-image: url('5.png');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.imagem-contato {
+    max-width: 100%;
+    width: 380px;
+    margin-top: 30px;
+    filter: drop-shadow(0px 12px 20px rgba(0,0,0,0.25));
+}
+
+/* Classes para o efeito de surgimento com JavaScript */
+.esconder {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação das Bolhas criadas por JS */
+#container-bolhas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.bolha-js {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.8), 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 50%;
+    animation: subir 8s linear infinite;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+    }
+}
