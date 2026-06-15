@@ -35,15 +35,15 @@
         <div class="container-curiosidades esconder">
             <h2 class="titulo-secao">Produção Agrícola & Economia</h2>
             <div class="grid-curiosidades">
-                <div class="card-curiosidade">
+                <div class="card-curioidade">
                     <h3>Importância Econômica</h3>
                     <p>O agronegócio é um dos principais motores da economia, gerando empregos e abastecendo o mercado global.</p>
                 </div>
-                <div class="card-curiosidade">
+                <div class="card-curioidade">
                     <h3>Agricultura de Precisão</h3>
                     <p>Uso de sensores e mapeamento para aplicar insumos no local correto, reduzindo desperdícios drasticamente.</p>
                 </div>
-                <div class="card-curiosidade">
+                <div class="card-curioidade">
                     <h3>Irrigação Inteligente</h3>
                     <p>Sistemas automatizados que medem a umidade do solo e liberam apenas a quantidade exata de água necessária.</p>
                 </div>
@@ -66,6 +66,13 @@
     </section>
 
     <section id="solucoes" class="secao fundo-5">
+        <div class="caixa-texto esconder">
+            <h2>Soluções para o Futuro</h2>
+            <p>A agricultura regenerativa reconstrói o solo esgotado. Através da inovação tecnológica, criamos ecossistemas comerciais que funcionam em perfeita harmonia com as florestas e a biodiversidade.</p>
+        </div>
+    </section>
+
+    <section id="ferramentas" class="secao ferramentas-bloco">
         <div class="container-interativo esconder">
             
             <div class="card-interativo">
@@ -79,12 +86,18 @@
                 <p id="resultado-calc" class="resultado-texto"></p>
             </div>
 
-            <div class="card-interativo">
+            <div class="card-interativo" id="bloco-quiz">
                 <h3>Quiz da Sustentabilidade</h3>
-                <p>O que monitora plantações sem compactar o solo?</p>
-                <button class="btn-interativo" onclick="verificarQuiz(false)">Tratores Pesados</button>
-                <button class="btn-interativo" onclick="verificarQuiz(true)">Drones Agrícolas</button>
-                <p id="resultado-quiz" class="resultado-texto"></p>
+                
+                <div id="container-pergunta">
+                    <p id="texto-pergunta">Carregando pergunta...</p>
+                    <div id="opcoes-quiz"></div>
+                </div>
+                
+                <div id="tela-resultado-quiz" style="display: none;">
+                    <p id="resultado-final-texto"></p>
+                    <button class="btn-interativo" onclick="reiniciarQuiz()">Jogar Novamente</button>
+                </div>
             </div>
 
         </div>
