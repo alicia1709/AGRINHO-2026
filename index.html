@@ -3,44 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuro Verde</title>
+    <title>Futuro Verde - Agronegócio & Sustentabilidade</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="container-bolhas"></div>
 
-    <header class="cabecalho">
+    <nav class="menu-navegacao">
+        <div class="logo">Futuro Verde</div>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#producao">Produção</a></li>
+            <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+            <li><a href="#desafios">Desafios</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#ferramentas">Ferramentas</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="cabecalho">
         <img src="1.png" alt="Futuro Verde" class="imagem-banner">
+        <div class="introducao-tema">
+            <p>A tecnologia de ponta unida à preservação ambiental para transformar o campo.</p>
+        </div>
     </header>
 
-    <section class="secao globo">
+    <section id="producao" class="secao globo">
         <div class="caixa-texto esconder">
-            <h2>Preservação e Tecnologia</h2>
-            <p>Conectando o mundo natural com as maiores inovações do amanhã.</p>
+            <h2>Produção Agrícola & Economia</h2>
+            <p>O agronegócio é um dos principais motores da economia global. Com o uso de <strong>Tecnologias Sustentáveis</strong> como a agricultura de precisão, irrigação inteligente e drones agrícolas, o campo produz mais alimentos gastando menos recursos.</p>
         </div>
     </section>
 
-    <section class="secao bolhas">
+    <section id="sustentabilidade" class="secao bolhas">
         <div class="caixa-texto esconder">
-            <h2>Ar Puro e Inovação</h2>
-            <p>Nossas ideias fluem com a leveza e a transparência da natureza.</p>
+            <h2>Sustentabilidade no Campo</h2>
+            <p>Práticas ecológicas, conservação do solo e o uso de energias renováveis (como solar e eólica) garantem que a produção de hoje não destrua o amanhã. Produzir com responsabilidade é o nosso foco.</p>
         </div>
     </section>
 
-    <section class="secao grama">
+    <section id="desafios" class="secao grama">
         <div class="caixa-texto esconder">
-            <h2>Crescimento Sustentável</h2>
-            <p>Cultivando um amanhã ecologicamente correto para as próximas gerações.</p>
+            <h2>Desafios Ambientais</h2>
+            <p>O desmatamento ilegal, o uso desenfreado da água e as altas emissões de carbono geram graves consequências para o clima global. O equilíbrio entre produção e preservação é urgente.</p>
         </div>
     </section>
 
-  <footer class="rodape">
-    <div class="conteudo-rodape esconder">
-        <h2>Conecte-se com a Comunidade</h2>
-        <img src="6.png" alt="Comunidade" class="imagem-contato">
-    </div>
-</footer>
+    <section id="solucoes" class="secao gota-fundo">
+        <div class="caixa-texto esconder">
+            <h2>Soluções para o Futuro</h2>
+            <p>A agricultura regenerativa reconstrói o solo esgotado. Através da inovação tecnológica, criamos ecossistemas comerciais que funcionam em perfeita harmonia com as florestas e a biodiversidade.</p>
+        </div>
+    </section>
+
+    <section id="ferramentas" class="secao ferramentas-bloco">
+        <div class="container-interativo esconder">
+            
+            <div class="card-interativo">
+                <h3>Calculadora de Impacto</h3>
+                <p>Quantos litros de água você acha que gasta na sua produção simulada? Escolha a tecnologia:</p>
+                <select id="tech-select">
+                    <option value="tradicional">Irrigação Tradicional (+ Desperdício)</option>
+                    <option value="inteligente">Irrigação Inteligente Gota a Gota (-60% Gasto)</option>
+                </select>
+                <button class="btn-interativo" onclick="calcularImpacto()">Calcular Economia</button>
+                <p id="resultado-calc" class="resultado-texto"></p>
+            </div>
+
+            <div class="card-interativo">
+                <h3>Quiz da Sustentabilidade</h3>
+                <p>Qual tecnologia ajuda a monitorar plantações sem compactar o solo?</p>
+                <button class="btn-interativo" onclick="verificarQuiz(false)">Tratores Pesados</button>
+                <button class="btn-interativo" onclick="verificarQuiz(true)">Drones Agrícolas</button>
+                <p id="resultado-quiz" class="resultado-texto"></p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contato" class="rodape">
+        <div class="conteudo-rodape esconder">
+            <h2>Participe da Mudança</h2>
+            <p>Envie sua mensagem ou ideia para nossa comunidade sustentável.</p>
+            
+            <form class="formulario-contato" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! 🌿');">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea placeholder="Sua sugestão para um futuro mais verde..." rows="4" required></textarea>
+                <button type="submit" class="btn-interativo">Enviar Mensagem</button>
+            </form>
+
+            <img src="6.png" alt="Comunidade" class="imagem-contato">
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
