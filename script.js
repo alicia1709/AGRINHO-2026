@@ -1,45 +1,68 @@
-// --- 1. EFEITO DE SURGIMENTO AO ROLAR A PÁGINA ---
-const elementosParaAnimar = document.querySelectorAll('.esconder');
+// --- 1. MENU RESPONSIVO ---
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
 
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Fecha o menu ao clicar em um link (para mobile)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+// --- 2. SURGIMENTO DOS ELEMENTOS (SCROLL) ---
+const elementos = document.querySelectorAll('.esconder');
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('mostrar');
         }
     });
-}, {
-    threshold: 0.25 // Ativa quando 25% do bloco aparece na tela
-});
+}, { threshold: 0.15 });
 
-elementosParaAnimar.forEach((el) => observer.observe(el));
+elementos.forEach(el => observer.observe(el));
 
-
-// --- 2. GERADOR AUTOMÁTICO DE BOLHAS FRUTIGER AERO ---
-const containerBolhas = document.getElementById('container-bolhas');
-
+// --- 3. GERADOR DE BOLHAS ---
+const container = document.getElementById('container-bolhas');
 function criarBolha() {
     const bolha = document.createElement('div');
     bolha.classList.add('bolha-js');
-
-    // Tamanhos aleatórios para as bolhas
-    const tamanho = Math.random() * 40 + 10 + 'px';
-    bolha.style.width = tamanho;
-    bolha.style.height = tamanho;
-
-    // Posição horizontal aleatória
+    const tam = Math.random() * 35 + 15 + 'px';
+    bolha.style.width = tam;
+    bolha.style.height = tam;
     bolha.style.left = Math.random() * 100 + 'vw';
+    const tempo = Math.random() * 4 + 5 + 's';
+    bolha.style.animationDuration = tempo;
+    container.appendChild(bolha);
+    setTimeout(() => { bolha.remove(); }, parseFloat(tempo) * 1000);
+}
+setInterval(criarBolha, 500);
 
-    // Velocidade de subida aleatória
-    const duracao = Math.random() * 5 + 5 + 's';
-    bolha.style.animationDuration = duracao;
-
-    containerBolhas.appendChild(bolha);
-
-    // Remove a bolha depois que a animação termina para não travar o site
-    setTimeout(() => {
-        bolha.remove();
-    }, parseFloat(duracao) * 1000);
+// --- 4. CALCULADORA DE IMPACTO (DESAFIO COMPLEMENTAR) ---
+function calcularImpacto() {
+    const selecao = document.getElementById('tech-select').value;
+    const resultado = document.getElementById('resultado-calc');
+    
+    if (selecao === 'tradicional') {
+        resultado.innerText = "⚠️ Alerta: Gasto estimado de 10.000L de água por hectare/dia. Tente a tecnologia inteligente!";
+        resultado.style.color = "#b91c1c";
+    } else {
+        resultado.innerText = "🌱 Excelente! Economia de 6.000L de água por hectare/dia detectada usando gotejamento inteligente.";
+        resultado.style.color = "#15803d";
+    }
 }
 
-// Cria uma nova bolha a cada 400 milissegundos
-setInterval(criarBolha, 400);
+// --- 5. QUIZ SUSTENTÁVEL (DESAFIO COMPLEMENTAR) ---
+function verificarQuiz(acertou) {
+    const resultado = document.getElementById('resultado-quiz');
+    if (acertou) {
+        resultado.innerText = "🎉 Correto! Os drones monitoram a saúde da lavoura lá de cima sem pisar e compactar o solo.";
+        resultado.style.color = "#15803d";
+    } else {
+        resultado.innerText = "❌ Errado! Tratores pesados compactam o solo, dificultando a absorção de água.";
+        resultado.style.color = "#b91c1c";
+    }
+}
