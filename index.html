@@ -24,50 +24,56 @@
         </ul>
     </nav>
 
-    <header id="home" class="cabecalho">
-        <img src="1.png" alt="Futuro Verde" class="imagem-banner">
-        <div class="introducao-tema">
+    <header id="home" class="secao fundo-1">
+        <div class="caixa-texto intro">
+            <h1>FUTURO VERDE</h1>
             <p>A tecnologia de ponta unida à preservação ambiental para transformar o campo.</p>
         </div>
     </header>
 
-    <section id="producao" class="secao globo">
-        <div class="caixa-texto esconder">
-            <h2>Produção Agrícola & Economia</h2>
-            <p>O agronegócio é um dos principais motores da economia global. Com o uso de <strong>Tecnologias Sustentáveis</strong> como a agricultura de precisão, irrigação inteligente e drones agrícolas, o campo produz mais alimentos gastando menos recursos.</p>
+    <section id="producao" class="secao fundo-2">
+        <div class="container-curiosidades esconder">
+            <h2 class="titulo-secao">Produção Agrícola & Economia</h2>
+            <div class="grid-curiosidades">
+                <div class="card-curiosidade">
+                    <h3>Importância Econômica</h3>
+                    <p>O agronegócio é um dos principais motores da economia, gerando empregos e abastecendo o mercado global.</p>
+                </div>
+                <div class="card-curiosidade">
+                    <h3>Agricultura de Precisão</h3>
+                    <p>Uso de sensores e mapeamento para aplicar insumos no local correto, reduzindo desperdícios drasticamente.</p>
+                </div>
+                <div class="card-curiosidade">
+                    <h3>Irrigação Inteligente</h3>
+                    <p>Sistemas automatizados que medem a umidade do solo e liberam apenas a quantidade exata de água necessária.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="sustentabilidade" class="secao bolhas">
+    <section id="sustentabilidade" class="secao fundo-3">
         <div class="caixa-texto esconder">
             <h2>Sustentabilidade no Campo</h2>
-            <p>Práticas ecológicas, conservação do solo e o uso de energias renováveis (como solar e eólica) garantem que a produção de hoje não destrua o amanhã. Produzir com responsabilidade é o nosso foco.</p>
+            <p>Práticas ecológicas, conservação ativa do solo e o uso estratégico de energias renováveis (como solar e eólica) garantem que a produção de hoje não comprometa os recursos do amanhã.</p>
         </div>
     </section>
 
-    <section id="desafios" class="secao grama">
+    <section id="desafios" class="secao fundo-4">
         <div class="caixa-texto esconder">
             <h2>Desafios Ambientais</h2>
-            <p>O desmatamento ilegal, o uso desenfreado da água e as altas emissões de carbono geram graves consequências para o clima global. O equilíbrio entre produção e preservação é urgente.</p>
+            <p>O desmatamento ilegal, a escassez de água e as altas emissões de carbono exigem respostas rápidas. Encontrar o equilíbrio perfeito entre produzir e preservar é a nossa maior missão.</p>
         </div>
     </section>
 
-    <section id="solucoes" class="secao gota-fundo">
-        <div class="caixa-texto esconder">
-            <h2>Soluções para o Futuro</h2>
-            <p>A agricultura regenerativa reconstrói o solo esgotado. Através da inovação tecnológica, criamos ecossistemas comerciais que funcionam em perfeita harmonia com as florestas e a biodiversidade.</p>
-        </div>
-    </section>
-
-    <section id="ferramentas" class="secao ferramentas-bloco">
+    <section id="solucoes" class="secao fundo-5">
         <div class="container-interativo esconder">
             
             <div class="card-interativo">
                 <h3>Calculadora de Impacto</h3>
-                <p>Quantos litros de água você acha que gasta na sua produção simulada? Escolha a tecnologia:</p>
+                <p>Simule a tecnologia de irrigação:</p>
                 <select id="tech-select">
-                    <option value="tradicional">Irrigação Tradicional (+ Desperdício)</option>
-                    <option value="inteligente">Irrigação Inteligente Gota a Gota (-60% Gasto)</option>
+                    <option value="tradicional">Irrigação Tradicional</option>
+                    <option value="inteligente">Irrigação Inteligente (-60% Água)</option>
                 </select>
                 <button class="btn-interativo" onclick="calcularImpacto()">Calcular Economia</button>
                 <p id="resultado-calc" class="resultado-texto"></p>
@@ -75,7 +81,7 @@
 
             <div class="card-interativo">
                 <h3>Quiz da Sustentabilidade</h3>
-                <p>Qual tecnologia ajuda a monitorar plantações sem compactar o solo?</p>
+                <p>O que monitora plantações sem compactar o solo?</p>
                 <button class="btn-interativo" onclick="verificarQuiz(false)">Tratores Pesados</button>
                 <button class="btn-interativo" onclick="verificarQuiz(true)">Drones Agrícolas</button>
                 <p id="resultado-quiz" class="resultado-texto"></p>
@@ -84,7 +90,7 @@
         </div>
     </section>
 
-    <footer id="contato" class="rodape">
+    <footer id="contato" class="secao fundo-6">
         <div class="conteudo-rodape esconder">
             <h2>Participe da Mudança</h2>
             <p>Envie sua mensagem ou ideia para nossa comunidade sustentável.</p>
@@ -92,11 +98,9 @@
             <form class="formulario-contato" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! 🌿');">
                 <input type="text" placeholder="Seu Nome" required>
                 <input type="email" placeholder="Seu E-mail" required>
-                <textarea placeholder="Sua sugestão para um futuro mais verde..." rows="4" required></textarea>
+                <textarea placeholder="Sua sugestão para um futuro mais verde..." rows="3" required></textarea>
                 <button type="submit" class="btn-interativo">Enviar Mensagem</button>
             </form>
-
-            <img src="6.png" alt="Comunidade" class="imagem-contato">
         </div>
     </footer>
 
