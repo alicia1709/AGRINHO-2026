@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth; /* Rolagem suave ao clicar no menu */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Menu de Navegação Frutiger Aero */
+/* Menu de Navegação Aero */
 .menu-navegacao {
     position: fixed;
     top: 0;
@@ -49,9 +49,7 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: #06b6d4;
-}
+.nav-links a:hover { color: #06b6d4; }
 
 .menu-toggle {
     display: none;
@@ -62,51 +60,46 @@ body {
     cursor: pointer;
 }
 
-/* Cabeçalho */
-.cabecalho {
-    padding-top: 80px; /* Desloca por causa do menu fixo */
-    background: linear-gradient(180deg, #bae6fd 0%, #e0f2fe 100%);
-    text-align: center;
-}
-
-.imagem-banner {
-    display: block;
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
-    margin: 0 auto;
-}
-
-.introducao-tema {
-    padding: 20px;
-    font-size: 1.3rem;
-    color: #0f766e;
-    font-weight: 500;
-}
-
-/* Forçando o preenchimento total dos fundos */
+/* Estrutura de Seções com Transições Suaves */
 .secao {
     min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover; /* Cobre todo o espaço mesmo em telas grandes */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 20px;
+    padding: 120px 20px;
+    position: relative;
 }
 
-/* Mapeamento das imagens */
-.globo { background-image: url('2.png'); }
-.bolhas { background-image: url('3.png'); }
-.grama { background-image: url('4.png'); }
-.gota-fundo { background-image: url('5.png'); }
+/* Transição suave em degradê entre as seções de imagem */
+.secao::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(to bottom, rgba(224, 242, 254, 0) 0%, rgba(224, 242, 254, 1) 100%);
+    pointer-events: none;
+}
+
+/* Aplicação de todas as 6 imagens recebidas nos fundos das seções */
+.fundo-1 { background-image: url('1.png'); }
+.fundo-2 { background-image: url('2.png'); }
+.fundo-3 { background-image: url('3.png'); }
+.fundo-4 { background-image: url('4.png'); }
+.fundo-5 { background-image: url('5.png'); }
+.fundo-6 { background-image: url('6.png'); }
 .ferramentas-bloco { background: linear-gradient(135deg, #e0f2fe 0%, #bbf7d0 100%); }
 
-/* Caixas de Texto com Efeito de Vidro */
-.caixa-texto, .container-interativo, .conteudo-rodape {
-    background: rgba(255, 255, 255, 0.7);
+.fundo-6::after, .ferramentas-bloco::after { display: none; }
+
+/* Estilo de Vidro Esfumaçado (Frutiger Aero) */
+.caixa-texto, .container-curiosidades, .container-interativo, .conteudo-rodape {
+    background: rgba(255, 255, 255, 0.75);
     padding: 40px;
     border-radius: 24px;
     backdrop-filter: blur(12px);
@@ -115,22 +108,55 @@ body {
     color: #042f2e;
     max-width: 650px;
     text-align: center;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
     transition: all 0.8s ease-out;
 }
 
-.caixa-texto h2 {
+.caixa-texto h1 {
+    font-size: 3.5rem;
+    color: #0f766e;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.9);
+}
+
+/* Grid Lado a Lado (3 por fileira) */
+.container-curiosidades {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.titulo-secao {
     font-size: 2.3rem;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     color: #0f766e;
 }
 
-.caixa-texto p {
-    font-size: 1.15rem;
-    line-height: 1.6;
+.grid-curiosidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-/* Cards Interativos */
+.card-curioidade {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 16px;
+    flex: 1;
+    min-width: 280px; 
+    max-width: 320px;  
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.card-curioidade h3 {
+    color: #0d9488;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* Componentes Interativos */
 .container-interativo {
     max-width: 900px;
     display: flex;
@@ -148,18 +174,12 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.card-interativo h3 {
-    margin-bottom: 15px;
-    color: #0d9488;
-}
-
 select {
     width: 100%;
     padding: 10px;
     margin: 15px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
-    background: white;
 }
 
 .btn-interativo {
@@ -167,26 +187,25 @@ select {
     color: white;
     border: none;
     padding: 12px 24px;
-    font-size: 1rem;
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
     transition: transform 0.2s;
-    margin: 5px;
+    margin: 8px 4px;
+    width: 90%;
 }
 
-.btn-interativo:hover {
-    transform: scale(1.05);
+.btn-interativo:hover { transform: scale(1.03); }
+
+.resultado-texto { margin-top: 15px; font-weight: 600; }
+
+#resultado-final-texto {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
-.resultado-texto {
-    margin-top: 15px;
-    font-weight: 600;
-    color: #0369a1;
-}
-
-/* Formulário de contato */
 .formulario-contato {
     display: flex;
     flex-direction: column;
@@ -197,28 +216,10 @@ select {
 .formulario-contato input, .formulario-contato textarea {
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.15);
-    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Rodapé */
-.rodape {
-    background: linear-gradient(180deg, #bbf7d0 0%, #38bdf8 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-}
-
-.imagem-contato {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    margin-top: 30px;
-}
-
-/* Animações e Bolhas */
+/* Bolhas Ambientais */
 .esconder { opacity: 0; transform: translateY(30px); }
 .mostrar { opacity: 1; transform: translateY(0); }
 
@@ -244,7 +245,7 @@ select {
     100% { transform: translateY(-115vh) scale(1.2); opacity: 0; }
 }
 
-/* Responsividade do Menu */
+/* Adaptações Mobile */
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
     .nav-links {
@@ -255,8 +256,7 @@ select {
         background: rgba(255, 255, 255, 0.95);
         padding: 20px;
         gap: 15px;
-        text-align: center;
-        border-bottom: 2px solid #0d9488;
     }
     .nav-links.active { display: flex; }
+    .card-curioidade { max-width: 100%; }
 }
